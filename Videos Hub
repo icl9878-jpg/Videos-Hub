@@ -1,0 +1,82 @@
+-- Futuristic Video Creator & Hub GUI (Studio Lite)
+-- Place this inside 'StarterPlayerScripts' or 'StarterGui' as a LocalScript
+
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+-- 1. Main ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "FuturisticVideoHub"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = PlayerGui
+
+-- 2. Main Frame
+local mainFrame = Instance.new("Frame")
+mainFrame.Name = "MainHubFrame"
+mainFrame.Size = UDim2.new(0, 650, 0, 420)
+mainFrame.Position = UDim2.new(0.5, -325, 0.5, -210)
+mainFrame.BackgroundColor3 = Color3.fromRGB(15, 20, 30)
+mainFrame.BorderSizePixel = 0
+mainFrame.ClipsDescendants = true
+mainFrame.Parent = screenGui
+
+local frameCorner = Instance.new("UICorner")
+frameCorner.CornerRadius = UDim.new(0, 12)
+frameCorner.Parent = mainFrame
+
+local frameStroke = Instance.new("UIStroke")
+frameStroke.Color = Color3.fromRGB(0, 170, 255)
+frameStroke.Thickness = 2
+frameStroke.Parent = mainFrame
+
+-- 3. Header Bar & Navigation
+local header = Instance.new("Frame")
+header.Name = "Header"
+header.Size = UDim2.new(1, 0, 0, 45)
+header.BackgroundColor3 = Color3.fromRGB(10, 14, 22)
+header.BorderSizePixel = 0
+header.Parent = mainFrame
+
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(0, 220, 1, 0)
+titleLabel.Position = UDim2.new(0, 15, 0, 0)
+titleLabel.BackgroundTransparency = 1
+titleLabel.Text = "⚡ HYPERLINK // CREATOR HUB"
+titleLabel.TextColor3 = Color3.fromRGB(0, 220, 255)
+titleLabel.TextSize = 13
+titleLabel.Font = Enum.Font.GothamBold
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+titleLabel.Parent = header
+
+-- Mode Switch Buttons (Watch vs Create)
+local watchTab = Instance.new("TextButton")
+watchTab.Size = UDim2.new(0, 100, 0, 28)
+watchTab.Position = UDim2.new(0, 240, 0, 8)
+watchTab.BackgroundColor3 = Color3.fromRGB(0, 140, 220)
+watchTab.Text = "📺 Watch Feed"
+watchTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+watchTab.Font = Enum.Font.GothamBold
+watchTab.TextSize = 11
+watchTab.Parent = header
+local wtCorner = Instance.new("UICorner") wtCorner.CornerRadius = UDim.new(0, 6) wtCorner.Parent = watchTab
+
+local createTab = Instance.new("TextButton")
+createTab.Size = UDim2.new(0, 110, 0, 28)
+createTab.Position = UDim2.new(0, 350, 0, 8)
+createTab.BackgroundColor3 = Color3.fromRGB(25, 35, 50)
+createTab.Text = "🎥 Create Video"
+createTab.TextColor3 = Color3.fromRGB(180, 200, 220)
+createTab.Font = Enum.Font.GothamBold
+createTab.TextSize = 11
+createTab.Parent = header
+local ctCorner = Instance.new("UICorner") ctCorner.CornerRadius = UDim.new(0, 6) ctCorner.Parent = createTab
+
+-- Close Button
+local closeBtn = Instance.new("TextButton")
+closeBtn.Size = UDim2.new(0, 30, 0, 30)
+closeBtn.Position = UDim2.new(1, -38, 0, 7)
+closeBtn.BackgroundColor3 = Color3.fromRGB(220, 50, 50)
+closeBtn.Text = "X"
+closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255
